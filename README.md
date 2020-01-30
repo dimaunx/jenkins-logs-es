@@ -18,11 +18,6 @@ docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 Finish [jenkins configuration].
 
-Create a simple jenkins job and run it. After the job will be executed, logstash will push the job logs and create 
-an index in Elastic Search.
-
-
-Login to kibana at localhost:5601 and configure [index pattern] to be **logstash-***.
 
 ## Flow
 Jenkins --> jenkins folder <-- Filebat --> Logstash --> Elatic Search <-- Kibana
