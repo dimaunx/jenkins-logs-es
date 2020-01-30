@@ -34,7 +34,7 @@ services:
   setup-kibana:
     image: centos:7
     volumes:
-      - ./scripts/setup-kibana.sh:/usr/local/bin/setup-kibana.sh:ro
+      - ./scripts/kibana/setup-kibana.sh:/usr/local/bin/setup-kibana.sh:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-kibana.sh | tr -d "\r" | bash']
     networks:
       - elk
@@ -67,7 +67,7 @@ services:
       - jenkins
 
   jenkins:
-    image: jenkins/jenkins
+    build: ./scripts/jenkins/
     volumes:
       - ./jenkins:/var/jenkins_home:z
     ports:
